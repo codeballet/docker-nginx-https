@@ -1,0 +1,10 @@
+version: "3.9"
+
+services:
+  host:
+    build: .
+    volumes:
+      - ./nginx:/etc/nginx
+    ports:
+      - "80:80"
+      # - "443:443"
