@@ -5,7 +5,7 @@ services:
     build: .
     volumes:
       - ./nginx:/etc/nginx:ro
-      - certbot/www:/var/www/certbot/:ro
+      - certbot:/var/www/certbot/:ro
     ports:
       - "80:80"
       - "443:443"
@@ -13,6 +13,6 @@ services:
   certbot:
     image: certbot/certbot:latest
     volumes:
-      - certbot/www:/var/www/certbot/
+      - certbot:/var/www/certbot/
 volumes:
   certbot:
