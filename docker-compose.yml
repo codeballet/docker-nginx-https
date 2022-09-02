@@ -13,6 +13,6 @@ services:
   certbot:
     image: certbot/certbot:latest
     volumes:
-      - certbot:/var/www/certbot/
+      - certbot:/var/www/certbot/:rw
 volumes:
   certbot:
