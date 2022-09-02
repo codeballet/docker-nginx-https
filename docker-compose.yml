@@ -2,17 +2,15 @@ version: "3.9"
 
 services:
   webserver:
-    build: .
+    image: nginx:latest
     volumes:
-      - ./nginx:/etc/nginx:ro
-      - ./certbot/conf:/etc/letsencrypt:ro
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
       - ./certbot/www:/var/www/certbot:ro
     ports:
       - "80:80"
       - "443:443"
     restart: always
-  # certbot:
-  #   image: certbot/certbot:latest
-  #   volumes:
-  #     - ./certbot/conf:/etc/letsencrypt:rw
-  #     - ./certbot/www:/var/www/certbot:rw
+  certbot:
+    image: certbot/certbot:latest
+    volumes:
+      - ./certbot/www:/var/www/certbot:rw
