@@ -1,6 +1,6 @@
 ## Testing Certbot with `--dry-run`
 
-First, make sure the Nginx webserver is running, and that the SSL part of the Nginx config is commented out. In other words, only use a server context on port 80 in Nginx. Then enter command:
+First, make sure the Nginx webserver is running, and that any SSL parts of the Nginx config is commented out. In other words, only use a server context on port 80 in Nginx. Then enter command:
 
 ```
 docker compose run --rm  certbot certonly --webroot --webroot-path /var/www/certbot/ --dry-run -d <server_name>
