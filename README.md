@@ -18,6 +18,19 @@ To aquire the necessary certificates, run the same command as for testing certbo
 docker compose run --rm  certbot certonly --webroot --webroot-path /var/www/certbot/ -d <server_name>
 ```
 
+## SSL configuration
+
+The SSL configuration is acquired from Mozilla's [SSL Configuration Generator](https://ssl-config.mozilla.org/) with the following settings:
+
+- Server Software: nginx
+- Mozilla Configuration: Modern
+- Environment:
+  - Server Version: 1.23.1
+  - OpenSSL Version: 3.0.5
+- Miscellaneous
+  - HTTP Strict Transport Security enabled
+  - OCSP Stapling disabled
+
 ## How to install Docker on a server
 
 Install from the docker repo:
