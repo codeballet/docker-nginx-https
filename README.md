@@ -24,9 +24,9 @@ To aquire the necessary certificates, run the same command as for testing certbo
 docker compose run --rm  certbot certonly --webroot --webroot-path /var/www/certbot/ -d <server_name>
 ```
 
-## SSL configuration
+## SSL server configuration
 
-The SSL configuration is acquired from Mozilla's [SSL Configuration Generator](https://ssl-config.mozilla.org/) with the following settings:
+The SSL server configuration is informed by Mozilla's [SSL Configuration Generator](https://ssl-config.mozilla.org/) with the following settings applied:
 
 - Server Software: nginx
 - Mozilla Configuration: Modern
