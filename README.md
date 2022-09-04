@@ -1,6 +1,8 @@
 ## About the docker volumes
 
-As explained in the documentation for Certbot under [Where are my certificates](https://eff-certbot.readthedocs.io/en/stable/using.html#where-certs), do note that `/etc/letsencrypt/archive` and `/etc/letsencrypt/keys` contain all keys and certificates, while `/etc/letsencrypt/live` symlinks to the latest versions. Hence, it is important to include the entire `/etc/letsencrypt/` directory for the relevant docker volume, not just the `/etc/letsencrypt/live` directory. Otherwise, the certificates and keys will not be found, as the symlinks has no actual files to link to.
+As explained in the documentation for Certbot under [Where are my certificates](https://eff-certbot.readthedocs.io/en/stable/using.html#where-certs), do note that `/etc/letsencrypt/archive` and `/etc/letsencrypt/keys` contain all keys and certificates, while `/etc/letsencrypt/live` symlinks to the latest versions. Hence, it is important to include the entire `/etc/letsencrypt/` directory for the relevant docker volume, not just the `/etc/letsencrypt/live` directory.
+
+Without the entire `/etc/letsencrypt/` directory, the certificates and keys will not be found inside the docker containers, as the symlinks has no actual files to link to.
 
 ## Testing Certbot with `--dry-run`
 
