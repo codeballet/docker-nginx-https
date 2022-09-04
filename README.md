@@ -1,4 +1,8 @@
-## About the docker volumes
+# Introduction to Nginx with SSL on Docker
+
+This project aims to provide an example of how to set up the official Nginx Docker image with HTTPS encryption. The SSL certificates are provided by Let's Encrypt, using the `certbot/certbot` Docker image.
+
+## About the use of docker volumes
 
 As explained in the documentation for Certbot under [Where are my certificates](https://eff-certbot.readthedocs.io/en/stable/using.html#where-certs), do note that `/etc/letsencrypt/archive` and `/etc/letsencrypt/keys` contain all keys and certificates, while `/etc/letsencrypt/live` symlinks to the latest versions. Hence, it is important to include the entire `/etc/letsencrypt/` directory for the relevant docker volume, not just the `/etc/letsencrypt/live` directory.
 
@@ -44,5 +48,5 @@ For a quick install, using a script from `get.docker.com`:
 ## Sources
 
 - Main guide followed: [HTTPS using Nginx and Let's encrypt in Docker](https://mindsers.blog/post/https-using-nginx-certbot-docker/)
-- [Nginx and Let’s Encrypt with Docker in Less Than 5 Minutes](https://pentacent.medium.com/nginx-and-lets-encrypt-with-docker-in-less-than-5-minutes-b4b8a60d3a71)
+- Additional advice and scripts for automatic renewal of certificates: [Nginx and Let’s Encrypt with Docker in Less Than 5 Minutes](https://pentacent.medium.com/nginx-and-lets-encrypt-with-docker-in-less-than-5-minutes-b4b8a60d3a71)
 - Official docs from Certbot: [Get Certbot Running with Docker](https://eff-certbot.readthedocs.io/en/stable/install.html#running-with-docker)
