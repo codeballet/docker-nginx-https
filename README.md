@@ -37,6 +37,8 @@ The SSL configuration is acquired from Mozilla's [SSL Configuration Generator](h
   - HTTP Strict Transport Security enabled
   - OCSP Stapling disabled
 
+With the configurations from 220904, the server received an "A" rating from [SSL Labs](https://www.ssllabs.com/ssltest).
+
 ## How to install Docker on a server
 
 Install from the docker repo:
