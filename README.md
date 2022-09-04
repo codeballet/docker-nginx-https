@@ -1,4 +1,4 @@
-# Introduction to Nginx with SSL on Docker
+# Introduction to Nginx with HTTPS on Docker
 
 This project aims to provide an example of how to set up the official Nginx Docker image with HTTPS encryption. The SSL certificates are provided by Let's Encrypt, using the `certbot/certbot` Docker image.
 
