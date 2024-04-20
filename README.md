@@ -1,6 +1,13 @@
 # Introduction to Nginx with HTTPS on Docker
 
-This project aims to provide an example of how to set up an Nginx server with HTTPS encryption provided Let's Encrypt, using the official Nginx and certbot/certbot Docker images.
+This project aims to provide a simple example of how to set up an Nginx server with HTTPS encryption provided Let's Encrypt, using the official Nginx and certbot/certbot Docker images.
+
+## Structure of the project
+The project has two docker-compose files, with some slight differences:
+
+`docker-compose.yml` is the file that may be used to run the certbot commands to acquire and set up the certificates.
+
+`docker-compose.prod.yml` contains some additional `command` and `entrypoint` lines that serves to keep the system running and automatically check for new certificates and reload nginx, as explained [in this article](https://pentacent.medium.com/nginx-and-lets-encrypt-with-docker-in-less-than-5-minutes-b4b8a60d3a71).
 
 ## About the use of docker volumes
 
@@ -13,7 +20,7 @@ Without the entire `/etc/letsencrypt/` directory, the certificates and keys will
 First, make sure the Nginx webserver is running, and that any SSL parts of the Nginx config is commented out. In other words, only use a server context on port 80 in Nginx. Then enter command:
 
 ```
-docker compose run --rm  certbot certonly --webroot --webroot-path /var/www/certbot/ --dry-run -d <server_name>
+sudo docker compose run --rm  certbot certonly --webroot --webroot-path /var/www/certbot/ --dry-run -d <server_name>
 ```
 
 ## Aquiring certificates from Let's encrypt
@@ -21,7 +28,7 @@ docker compose run --rm  certbot certonly --webroot --webroot-path /var/www/cert
 To aquire the necessary certificates, run the same command as for testing certbot, but without the `--dry-run` flag.
 
 ```
-docker compose run --rm  certbot certonly --webroot --webroot-path /var/www/certbot/ -d <server_name>
+sudo docker compose run --rm  certbot certonly --webroot --webroot-path /var/www/certbot/ -d <server_name>
 ```
 
 ## SSL server configuration
